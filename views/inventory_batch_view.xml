@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="inventory_batch_view_form" model="ir.ui.view">
+            <field name="name">stock.picking.batch.form</field>
+            <field name="model">stock.picking.batch</field>
+            <field name="inherit_id" ref="stock_picking_batch.stock_picking_batch_form"/>
+            <field name="arch" type="xml">
+                
+                    <field name="scheduled_date" position="after">
+                        <field name="dock"/>
+                        <field name="vehicle" placeholder="Third Party Provider"/>
+                        <field name="vehicle_category" placeholder="e.g. Semi-truck"/> 
+                        <field name="weight" widget="progressbar" invisible="not vehicle_category"/>
+                        <field name="volume" widget="progressbar" invisible="not vehicle_category"/>
+                    </field>
+
+            </field>
+    </record>
+</odoo>
+    
+
+

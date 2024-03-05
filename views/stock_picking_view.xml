@@ -1,0 +1,17 @@
+<odoo>
+
+    <record id='vpicktree' model='ir.ui.view'>
+        <field name="name">stock.picking.tree.inherit</field>
+        <field name="model">stock.picking</field>
+        <field name="inherit_id" ref="stock.vpicktree"/>
+        <field name="arch" type="xml">
+
+            <field name="scheduled_date" position="after">
+                <field name="volume"/>
+                <field name="weight"/>
+            </field>
+            
+        </field>
+    </record>
+
+</odoo>   
