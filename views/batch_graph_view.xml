@@ -4,8 +4,8 @@
 
 
     <record id="stock_picking_batch.stock_picking_batch_action" model="ir.actions.act_window">       
-            <field name="res_model">stock.picking.batch</field>
-            <field name="view_mode">tree,form,kanban,graph</field>    	
+            <field name="view_mode">tree,form,kanban,graph</field>  
+            <field name="context">{'group_by': ['scheduled_date', 'vehicle_category']}</field>  	
     </record>
 
 
@@ -14,10 +14,15 @@
         <field name="name">stock.picking.batch.graph</field>
         <field name="model">stock.picking.batch</field>
         <field name="arch" type="xml">
-            <graph string="Batch Transfer" type="bar" sample="1" groupby="">
+            <graph string="Batch Transfer" type="bar" sample="1" >
+
+                 <field name="scheduled_date" string="Days"/>
                  <field name="vehicle_category" string="Vehicle Category"/>
                  <field name="weight" string="Weight" type="measure"/>
                  <field name="volume" string="Volume" type="measure"/>
+                 <field name="no_transfer" string="Transfers" type="measure"/>
+                 <field name="no_line" string="Lines" type="measure"/>
+
              </graph>
         </field>
     </record>

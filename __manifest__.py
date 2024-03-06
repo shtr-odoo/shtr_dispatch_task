@@ -10,6 +10,9 @@
         'views/stock_transport_view.xml',
         'views/inventory_batch_view.xml',
         'views/stock_picking_view.xml',
-        'views/batch_graph_view.xml'
-    ]
+        'views/batch_graph_view.xml',
+        'views/batch_gantt_view.xml'
+        ]
+        
 }
+        
