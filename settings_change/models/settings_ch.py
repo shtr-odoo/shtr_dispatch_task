@@ -1,5 +1,5 @@
-from odoo import models,fields,api
-from odoo.exceptions import UserError
+from odoo import models,fields
+
 
 class SettingsCh(models.TransientModel):
      _inherit = "res.config.settings"

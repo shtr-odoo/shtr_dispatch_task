@@ -21,6 +21,7 @@
                 decoration-info="state == 'draft'"
             >
                 <field name="state"/>
+                <field name="vehicle_category"/>
             </gantt>
         </field>
     </record>

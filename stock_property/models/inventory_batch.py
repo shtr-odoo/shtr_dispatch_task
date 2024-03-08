@@ -12,21 +12,20 @@ class InventoryBatch(models.Model):
      volume = fields.Float(string="Volume", readonly=True, compute='_compute_weight_volume', store=True)
      no_line = fields.Integer(string="Lines" ,compute='_compute_transfer_line' ,store=True)
      no_transfer = fields.Integer(string="Transfer", compute='_compute_transfer_line' ,store=True)
-    
 
      @api.depends('picking_ids','vehicle_category')
      def _compute_weight_volume(self):
-          local_w = 0
-          local_v = 0
+          temp_w = 0
+          temp_v = 0
           self.weight = 0
           self.volume = 0
 
           for record in self:
-               local_w = sum((line.weight) for line in record.picking_ids)
-               local_v = sum((line.volume) for line in record.picking_ids)
+               temp_w = sum((line.weight) for line in record.picking_ids)
+               temp_v = sum((line.volume) for line in record.picking_ids)
 
-          if self.vehicle_category.max_weight > 0 : self.weight = (local_w / self.vehicle_category.max_weight)*100
-          if self.vehicle_category.max_volume > 0 : self.volume = (local_v / self.vehicle_category.max_volume)*100
+          if self.vehicle_category.max_weight > 0 : self.weight = (temp_w / self.vehicle_category.max_weight)*100
+          if self.vehicle_category.max_volume > 0 : self.volume = (temp_v / self.vehicle_category.max_volume)*100
 
      @api.depends('picking_ids','move_line_ids')
      def _compute_transfer_line(self):
