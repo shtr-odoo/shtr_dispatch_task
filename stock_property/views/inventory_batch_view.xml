@@ -10,8 +10,15 @@
                         <field name="dock"/>
                         <field name="vehicle" placeholder="Third Party Provider"/>
                         <field name="vehicle_category" placeholder="e.g. Semi-truck"/> 
+
+                      
                         <field name="weight" widget="progressbar" invisible="not vehicle_category"/>
+                        <field name="total_w" string="Total Weight" invisible="not vehicle_category" class="oe_inline"/>
+                        
+                        
                         <field name="volume" widget="progressbar" invisible="not vehicle_category"/>
+                        <field name="total_v" string="Total Volume" invisible="not vehicle_category" class="oe_inline"/>
+                        
                     </field>
 
             </field>

@@ -14,17 +14,19 @@
         <field name="model">stock.picking.batch</field>
         <field name="arch" type="xml">
             <gantt 
-                date_start="scheduled_date" 
+                date_start="create_date" 
                 date_stop="scheduled_date"
-                default_group_by="dock_id"
+                default_group_by="dock,vehicle.model_ids"
+                
+                decoration-success="state == 'done'"
                 color="id"
                 decoration-info="state == 'draft'"
             >
-                <field name="state"/>
-                <field name="vehicle_category"/>
+                <field name="state"/> 
+                
             </gantt>
         </field>
-    </record>
+    </record> 
     
 </odoo>
 
